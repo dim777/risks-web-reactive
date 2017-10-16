@@ -1,4 +1,4 @@
-package ru.techlab.risks.web.controllers;
+package ru.techlab.risks.web.config.ws;
 
 import org.springframework.web.reactive.socket.WebSocketHandler;
 import org.springframework.web.reactive.socket.WebSocketSession;
@@ -13,10 +13,6 @@ public class EchoWebSocketHandler implements WebSocketHandler {
     @Override
     public Mono<Void> handle(WebSocketSession session) {
         return session
-                .send(
-                        session.receive()
-                        .delayElements(Duration.ofSeconds(1))
-                        .log()
-                );
+                .send(session.receive().delayElements(Duration.ofSeconds(1)).log());
     }
 }
