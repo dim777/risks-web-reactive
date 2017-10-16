@@ -32,6 +32,8 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-cassandra-reactive')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-webflux')
+	compile('joda-time:joda-time:2.9.9')
+	compile files('../risks-libs/build/libs/loans-1.0-SNAPSHOT.jar')
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('io.projectreactor:reactor-test')

@@ -5,7 +5,7 @@ import org.springframework.data.cassandra.repository.CassandraRepository;
 import org.springframework.data.cassandra.repository.Query;
 import org.springframework.data.cassandra.repository.ReactiveCassandraRepository;
 import org.springframework.stereotype.Repository;
-import ru.techlab.risks.rest.risksrestservices.model.LoanQualityResult;
+import ru.techlab.risks.web.model.LoanQualityResult;
 
 import java.util.stream.Stream;
 
@@ -14,7 +14,7 @@ import java.util.stream.Stream;
  */
 @Repository
 @Cacheable("loanQualityResultRepository")
-public interface LoanQualityResultRepository extends ReactiveCassandraRepository<{
+public interface LoanQualityResultRepository extends ReactiveCassandraRepository<LoanQualityResult, String>{
     @Query("SELECT * FROM SRRU WHERE RRABD = ?0 AND RRAND = ?1 AND RRASD = ?2")
     Stream<LoanQualityResult> findSimpleDelayByLoan(String branch, String loanAccountNumber, String loanAccountSuffix);
 }
