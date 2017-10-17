@@ -20,7 +20,6 @@ public class WebSocketRouter {
     public HandlerMapping handlerMapping() {
 
         Map<String, WebSocketHandler> map = new HashMap<>();
-        map.put("/loansquality/echo", new EchoWebSocketHandler());
         map.put("/websocket/echo", new EchoWebSocketHandler());
 
         SimpleUrlHandlerMapping mapping = new SimpleUrlHandlerMapping();
